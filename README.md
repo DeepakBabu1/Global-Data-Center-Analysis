@@ -34,29 +34,37 @@ This project analyzes **global data center statistics**, examines **cooling tech
 
 ## 🤖 Machine Learning Approach
 
-1. **Data Preprocessing**
-   - Removed outliers using the **Interquartile Range (IQR)** method.
-   - Handled missing values and ensured data consistency.
+### 1️⃣ Data Preprocessing
+- **Outliers Removal**:  
+  Applied the **Interquartile Range (IQR) method** to detect and remove extreme values that could skew the model’s learning process. This helped reduce noise and improve prediction stability.
+- **Handling Missing Values**:  
+  Removed or imputed missing entries to ensure consistency in the training dataset.
+- **Feature Encoding**:  
+  Converted categorical variables (e.g., cooling technology types) into numerical representations for model compatibility.
 
-2. **Feature Selection**
-   - Applied `SelectKBest` with `f_regression` from scikit-learn to retain the most statistically relevant predictors.
+### 2️⃣ Feature Selection
+- Used **`SelectKBest`** with **`f_regression`** (from `scikit-learn`) for **univariate feature selection**.  
+  - This statistical test measures the strength of the relationship between each feature and the target variable (power capacity).
+  - Kept only the top-ranked predictors, reducing dimensionality and improving computational efficiency.
+  - This step also helped reveal which features have the most influence — providing interpretability.
 
-3. **Modeling**
-   - Tested:
-     - `RandomForestRegressor`
-     - `GradientBoostingRegressor`
-   - Achieved the **best R² score** of **60%** with **Random Forest** — the highest achievable for this dataset.
+### 3️⃣ Model Selection
+Tested two powerful ensemble regression algorithms:
+- **RandomForestRegressor**:
+  - Works by building multiple decision trees and averaging their predictions.
+  - Handles **non-linear relationships** and **interactions** between variables.
+  - Less sensitive to outliers after preprocessing.
+- **GradientBoostingRegressor**:
+  - Builds trees sequentially, with each tree correcting the errors of the previous one.
+  - Often better for datasets with subtle patterns, but can overfit with small datasets.
 
----
+### 4️⃣ Model Training & Evaluation
+- Split the dataset into **training** and **testing** sets to evaluate generalization.
+- Evaluated models using **R² score**:
+  - **Random Forest** achieved **0.60** — the best result possible with this dataset.
+  - Gradient Boosting performed slightly lower due to dataset size and complexity.
 
-## 📈 Visualizations
-- **Top 10 Countries: Data Centers vs Power Capacity**
-- **Renewable Energy Adoption Distribution**
-- **Cooling Technology Usage by Country**
-- **Predicted vs Actual Power Capacity**
-
-*(Add plots in the `images/` folder and embed them here)*
-
-Example:
-```markdown
-![Top 10 Countries Scatter Plot](images/top10_scatter.png)
+### 5️⃣ Key Insights from Modeling
+- Random Forest captured complex relationships between **total data centers**, **cooling technologies**, and **renewable adoption rates** better than Gradient Boosting.
+- Feature selection improved accuracy by removing irrelevant variables.
+- Outlier removal had a noticeable positive effect on performance.
