@@ -69,7 +69,7 @@ Tested two powerful ensemble regression algorithms:
 - Feature selection improved accuracy by removing irrelevant variables.
 - Outlier removal had a noticeable positive effect on performance.
 
-## 📈 Data Visualization
+## 📈 Data Visualization - POWER BI
 - **Bar charts** to highlight top countries in data center count and power usage.
 - **Pie chart** showing cloud provider market reach across countries.
 - **Distribution plots** for cooling technology adoption trends.
