@@ -68,3 +68,11 @@ Tested two powerful ensemble regression algorithms:
 - Random Forest captured complex relationships between **total data centers**, **cooling technologies**, and **renewable adoption rates** better than Gradient Boosting.
 - Feature selection improved accuracy by removing irrelevant variables.
 - Outlier removal had a noticeable positive effect on performance.
+
+## 📈 Data Visualization
+- **Bar charts** to highlight top countries in data center count and power usage.
+- **Pie chart** showing cloud provider market reach across countries.
+- **Distribution plots** for cooling technology adoption trends.
+- **Comparative visualizations** for renewable energy usage categories.
+- Designed with clear annotations, vibrant color coding, and intuitive layouts for maximum insight.
+
